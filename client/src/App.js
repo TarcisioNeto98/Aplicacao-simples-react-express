@@ -6,12 +6,16 @@ class App extends React.Component {
   constructor(props){
     super(props);
     this.buscarDados = this.buscarDados.bind(this);
+    this.mostrarDados = this.mostrarDados.bind(this);
+  }
+
+  mostrarDados(arq){
+    alert(JSON.stringify(arq));
   }
 
   buscarDados(){
     var url = 'http://localhost:3001/';
-    var texto = fetch(url).then(res => res.json()).then(res => JSON.stringify(res));
-    alert(texto);
+    fetch(url).then(res => res.json()).then(data => this.mostrarDados(data)).catch(e => console.error(e));
   }
   
   render(){
