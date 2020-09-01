@@ -1,5 +1,4 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 
 class App extends React.Component {
@@ -10,12 +9,15 @@ class App extends React.Component {
   }
 
   buscarDados(){
+    var url = 'http://localhost:3001/';
+    var texto = fetch(url).then(res => res.json()).then(res => JSON.stringify(res));
+    alert(texto);
   }
   
   render(){
     return (
       <div className="App">
-        <form action={this.buscarDados}>
+        <form onSubmit={this.buscarDados}>
           <input id="nome" type="text" name="nome"/>
           <input type="submit" value="Enviar"/>
         </form>
