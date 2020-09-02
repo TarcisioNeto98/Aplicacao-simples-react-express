@@ -14,8 +14,8 @@ class App extends React.Component {
   }
 
   buscarDados(){
-    var url = 'http://localhost:3001/';
-    fetch(url).then(res => res.json()).then(data => this.mostrarDados(data)).catch(e => console.error(e));
+    var url = 'http://localhost:3001/banco/alunos';
+    fetch(url).catch(e => console.error(e));
   }
   
   render(){
