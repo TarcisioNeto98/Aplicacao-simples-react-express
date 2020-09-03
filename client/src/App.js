@@ -1,4 +1,5 @@
 import React from 'react';
+import axios from 'axios';
 import './App.css';
 
 class App extends React.Component {
@@ -10,12 +11,13 @@ class App extends React.Component {
   }
 
   mostrarDados(arq){
-    alert(JSON.stringify(arq));
+    alert(arq.neto);
   }
 
   buscarDados(){
-    var url = 'http://localhost:3001/banco/alunos';
-    fetch(url).catch(e => console.error(e));
+    var url = 'http://localhost:3001/banco/inserir/alunos';
+    var usuario = {id: 13, nome: 'red', chave: 2};
+    axios.post(url, usuario).then(res => res.data).then(data => this.mostrarDados(data)).catch(e => console.error(e));
   }
   
   render(){
