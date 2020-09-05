@@ -11,13 +11,13 @@ class App extends React.Component {
   }
 
   mostrarDados(arq){
-    alert(arq.neto);
+    alert(arq);
   }
 
   buscarDados(){
-    var url = 'http://localhost:3001/banco/inserir/alunos';
-    var usuario = {id: 13, nome: 'red', chave: 2};
-    axios.post(url, usuario).then(res => res.data).then(data => this.mostrarDados(data)).catch(e => console.error(e));
+    var url = 'http://localhost:3001/banco/alunos';
+    var usuario = {id: 23, nome: 'tarcisio neto 1998', chave: 2};
+    axios.get(url, usuario).then(res => res.data).then(data => this.mostrarDados(data)).catch(e => console.error(e));
   }
   
   render(){

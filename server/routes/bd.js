@@ -23,4 +23,14 @@ router.post('/inserir/alunos', (req, res) => {
     });
 });
 
+router.put('/atualizar/alunos', (req, res) => {
+    var dados = req.body;
+    var valores = [dados.id, dados.nome];
+
+    Banco.banco().query('UPDATE teste.aluno SET nome_aluno = $2 WHERE codigo_aluno = $1', valores, (err, result) => {
+        if(err) console.error(err);
+        res.json(result.rows);
+    })
+})
+
 module.exports = router;
