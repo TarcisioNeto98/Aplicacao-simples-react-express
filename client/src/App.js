@@ -15,9 +15,9 @@ class App extends React.Component {
   }
 
   buscarDados(){
-    var url = 'http://localhost:3001/banco/alunos';
-    var usuario = {id: 23, nome: 'tarcisio neto 1998', chave: 2};
-    axios.get(url, usuario).then(res => res.data).then(data => this.mostrarDados(data)).catch(e => console.error(e));
+    var url = 'http://localhost:3001/banco/deletar/alunos';
+    var usuario = {id: 3, nome: 'tarcisio neto 1998', chave: 2};
+    axios.delete(url, {params:usuario}).then(res => res.data).then(data => this.mostrarDados(data)).catch(e => console.error(e));
   }
   
   render(){
